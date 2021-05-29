@@ -22,9 +22,27 @@ class UserType extends AbstractType
                     new NotBlank(),
                 ],
             ])
-            ->add('plainPassword')
-            ->add('firstname')
-            ->add('lastname')
+            ->add('plainPassword', null, [
+                'label' => 'Mot de passe',
+                'required' => true,
+                'constraints' => [
+                    new NotBlank(),
+                ],
+            ])
+            ->add('firstname', null, [
+                'label' => 'Prénom',
+                'required' => true,
+                'constraints' => [
+                    new NotBlank(),
+                ],
+            ])
+            ->add('lastname', null, [
+                'label' => 'Nom',
+                'required' => true,
+                'constraints' => [
+                    new NotBlank(),
+                ],
+            ])
         ;
     }
 
