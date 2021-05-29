@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Salut{% endblock %}
+
+{% block body %}
+    <p>test</p>
+
+    {{ form_start(userForm) }}
+
+
+    <button type="submit">Créer mon compte</button>
+    {{ form_end(userForm) }}
+{% endblock %}
