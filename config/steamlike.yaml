@@ -1,0 +1,7 @@
+parameters:
+  CATEGORIES:
+    'Bac à sable': Bac à sable
+    '2D': 2D
+    '3D': 3D
+    'Combat': Combat
+    'Horreur': Horreur

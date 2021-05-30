@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>Créer votre compte</p>
+    <p>Modifier votre compte</p>
 
     {{ form_start(userForm) }}
 
@@ -10,6 +10,6 @@
     {{ form_row(userForm.firstname) }}
     {{ form_row(userForm.plainPassword) }}
 
-    <button type="submit" class="btn">Créer mon compte</button>
+    <button class="btn" type="submit">Modifier mes information</button>
     {{ form_end(userForm) }}
 {% endblock %}

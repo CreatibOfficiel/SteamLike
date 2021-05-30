@@ -6,16 +6,37 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
-        <div>SteamLike</div>
-        {% block body %}{% endblock %}
+        <nav class="vcenter">
+            <a id="logo" href="{{ url('home') }}">SteamLike</a>
+            <ul>
+                {% if app.user %}
+                    <li>
+                        <a href="{{ url("dashboard") }}">Mon profil</a>
+                    </li>
+                    <li>
+                        <a href="{{ url("app_logout") }}">Se deconnecter</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ url("app_login") }}">Se connecter</a>
+                    </li>
 
+                    <li>
+                        <a href="{{ url("user_create_account") }}">Créer un compte</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>

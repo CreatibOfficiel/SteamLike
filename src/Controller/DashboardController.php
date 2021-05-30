@@ -14,7 +14,10 @@ class DashboardController extends AbstractController
      */
     public function __invoke()
     {
-        return $this->render('base.html.twig');
+
+        return $this->render('dashboard.html.twig', [
+
+        ]);
     }
 
 }

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <a href="{{ url('add_game') }}" class="btn">Ajouter un jeu</a>
+        <a href="{{ url('user_edit_profile') }}" class="btn">Modifier mes informations</a>
+    </div>
+
+    <div>
+        <p>Mes jeux ({{ app.user.games|length }})</p>
+
+        {% for game in app.user.games|sort((a, b) => a.createdAt < b.createdAt) %}
+            <div class="game_item">
+                {{ game.name }}
+                <div class="actions">
+                    <a href="{{ url('edit_game', { id: game.id }) }}">Modifier mon jeu</a>
+                </div>
+            </div>
+        {% endfor %}
+
+        <a href="{{ url('home') }}" class="btn">Revenir à l'accueil</a>
+    </div>
+{% endblock %}

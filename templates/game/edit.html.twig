@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.link) }}
+    {{ form_row(form.category) }}
+
+    <button type="submit" class="btn">{{ edit ? 'Modifier le jeu' : 'Ajouter le jeu' }}</button>
+    {{ form_end(form) }}
+{% endblock %}

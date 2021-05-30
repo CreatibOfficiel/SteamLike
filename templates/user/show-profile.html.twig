@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>{{ user.firstname }} {{ user.lastname }}</h2>
+
+    <div>
+        <h3>Ses jeux ({{ user.games|length }})</h3>
+
+        {% for game in app.user.games %}
+            <div class="game_item">
+                {{ game.name }}
+                <a href="{{ url('download_game', {id: game.id }) }}" class="btn btn-secondary">Télécharger</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

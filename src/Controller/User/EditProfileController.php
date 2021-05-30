@@ -12,28 +12,33 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
-class CreateAccountController extends AbstractController
+class EditProfileController extends AbstractController
 {
     /**
-     * @Route("/create-account", name="user_create_account")
+     * @Route("/edit-profile", name="user_edit_profile")
      */
     public function __invoke(Request $request,
                              UserPasswordEncoderInterface $userPasswordEncoder,
                              EntityManagerInterface $entityManager)
     {
-        $user = new User();
-        $userForm = $this->createForm(UserType::class, $user);
+        /** @var User $user */
+        $user = $this->getUser();
+        $userForm = $this->createForm(UserType::class, $user, [
+            'passwordNullable' => true
+        ]);
 
         $userForm->handleRequest($request);
         if($userForm->isSubmitted() && $userForm->isValid()) {
-            $user->setPassword($userPasswordEncoder->encodePassword($user, $user->getPlainPassword()));
-            $entityManager->persist($user);
+            if(!is_null($user->getPlainPassword())) {
+                $user->setPassword($userPasswordEncoder->encodePassword($user, $user->getPlainPassword()));
+            }
+
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('dashboard');
         }
 
-        return $this->render('user/create-account.html.twig', [
+        return $this->render('user/edit-profile.html.twig', [
             'userForm' => $userForm->createView()
         ]);
     }
