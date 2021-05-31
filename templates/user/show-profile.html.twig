@@ -6,7 +6,7 @@
     <div>
         <h3>Ses jeux ({{ user.games|length }})</h3>
 
-        {% for game in app.user.games %}
+        {% for game in user.games %}
             <div class="game_item">
                 {{ game.name }}
                 <a href="{{ url('download_game', {id: game.id }) }}" class="btn btn-secondary">Télécharger</a>

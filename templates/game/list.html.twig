@@ -22,7 +22,9 @@
                     <h4>{{ game.game.name }}</h4>
                     <h4 class="btn btn-quartiary">{{ game.game.category }}</h4>
                     <p>{{ game.downloads > 0 ? 'Téléchargé ' ~ game.downloads ~ ' fois' : 'Pas encore téléchargé' }}</p>
-                    <a href="{{ url('download_game', {id: game.game.id }) }}" class="btn btn-secondary">Télécharger le jeu</a>
+                    {% if app.user %}
+                        <a href="{{ url('download_game', {id: game.game.id }) }}" class="btn btn-secondary">Télécharger le jeu</a>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

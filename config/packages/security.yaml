@@ -37,5 +37,14 @@ security:
     access_control:
         - { path: ^/create-account, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/list-game, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logout, roles: ROLE_USER }
+        - { path: ^/dashboard, roles: ROLE_USER }
+        - { path: ^/add-game, roles: ROLE_USER }
+        - { path: ^/download-game, roles: ROLE_USER }
+        - { path: ^/download-game/*, roles: ROLE_USER }
+        - { path: ^/edit-game/*, roles: ROLE_USER }
+        - { path: ^/edit-profile, roles: ROLE_USER }
+        - { path: ^/show-profile, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
