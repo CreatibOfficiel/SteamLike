@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('https://store.cloudflare.steamstatic.com/public/images/v6/colored_body_top.png?v=2');
+}
+
+* {
+    font-family: Colibri, sans-serif;
+    letter-spacing: 0.1em;
+    color: #b8b6b4;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    background: #171a21;
+    height: 104px;
+    width: 100%;
+    position: relative;
+
+    #logo {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        li {
+            padding: 15px;
+        }
+    }
+
+    a {
+        color: #b8b6b4;
+    }
+}
+
+.vcenter {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.h100 {
+    height: 100%;
+}
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1, h2, h3, h4 {
+    color: white;
+}
+
+#content {
+    padding: 50px;
+}
+
+.game_item {
+    background: #171a21;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 5px;
+    height: 4em;
+    align-items: center;
+    justify-content: space-between;
+
+    & > div {
+        flex: 1;
+    }
+}
+
+.btn {
+    border: none;
+    box-shadow: none;
+    border-radius: 3px;
+    background: #B0413E;
+    padding: 8px 15px;
+    display: inline-block;
+
+    &.btn-secondary {
+        background: rgba( 103, 193, 245, 0.2);
+        color: #67c1f5;
+    }
+
+    &.btn-tertiary {
+        background: #4c6b22;
+        color: #8bc53f;
+    }
+
+    &.btn-quartiary {
+        font-size: 8px;
+        background: #756448;
+        color: #FFCC62;
+    }
+}
+
+.select2-container {
+    min-width: 200px;
+    width: auto !important;
+}
+.sub_info {
+    color: white;
+    font-size: 8px;
+}
+
+input {
+    background: white;
+    border-radius: 4px;
+    padding: 6px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid white;
+    margin: 0px 10px;
+
+    &:hover {
+        border: 1px solid gray;
+    }
+}
+
+.select2 {
+    margin: 0px 10px;
+}
+

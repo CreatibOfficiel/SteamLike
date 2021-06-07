@@ -7,14 +7,19 @@
         <div>
             {% for game in games %}
                 <div class="game_item">
-                    {% if app.user %}
-                        <a href="{{ url('user_show_profile', {id: game.game.owner.id}) }}" class="btn btn-tertiary">{{ game.game.owner.firstname }} {{ game.game.owner.lastname }}</a>
-                    {% else %}
-                        <a class="btn btn-tertiary">{{ game.game.owner.firstname }} {{ game.game.owner.lastname }}</a>
-                    {% endif %}
-                        <div>{{ game.game.name }}</div>
+                    <div>
+                        {% if app.user %}
+                            <a href="{{ url('user_show_profile', {id: game.game.owner.id}) }}" class="btn btn-tertiary">{{ game.game.owner.firstname }} {{ game.game.owner.lastname }}</a>
+                        {% else %}
+                            <a class="btn btn-tertiary">{{ game.game.owner.firstname }} {{ game.game.owner.lastname }}</a>
+                        {% endif %}
+                    </div>
 
-                    <div class="btn btn-quartiary">{{ game.game.category }}</div>
+                    <div>{{ game.game.name }}</div>
+
+                    <div>
+                        <div class="btn btn-quartiary">{{ game.game.category }}</div>
+                    </div>
                     <div class="sub_info">ajouté le {{ game.game.createdAt|date('d/m/Y H:i') }}</div>
                     <div>{{ game.downloads > 0 ? 'Téléchargé ' ~ game.downloads ~ ' fois' : 'Pas encore téléchargé' }}</div>
                 </div>
