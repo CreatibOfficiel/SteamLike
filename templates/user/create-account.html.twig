@@ -5,11 +5,17 @@
 
     {{ form_start(userForm) }}
 
-    {{ form_row(userForm.email) }}
-    {{ form_row(userForm.lastname) }}
-    {{ form_row(userForm.firstname) }}
-    {{ form_row(userForm.plainPassword) }}
+    <div class="input_form">
+        {{ form_label(userForm.email) }}
+        {{ form_widget(userForm.email) }}
+        {{ form_label(userForm.lastname) }}
+        {{ form_widget(userForm.lastname) }}
+        {{ form_label(userForm.firstname) }}
+        {{ form_widget(userForm.firstname) }}
+        {{ form_label(userForm.plainPassword) }}
+        {{ form_widget(userForm.plainPassword) }}
+        <button type="submit" class="btn">Créer mon compte</button>
+    </div>
 
-    <button type="submit" class="btn">Créer mon compte</button>
     {{ form_end(userForm) }}
 {% endblock %}

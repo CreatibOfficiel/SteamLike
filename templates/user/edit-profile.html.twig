@@ -5,11 +5,16 @@
 
     {{ form_start(userForm) }}
 
-    {{ form_row(userForm.email) }}
-    {{ form_row(userForm.lastname) }}
-    {{ form_row(userForm.firstname) }}
-    {{ form_row(userForm.plainPassword) }}
-
-    <button class="btn" type="submit">Modifier mes information</button>
+    <div class="input_form">
+        {{ form_label(userForm.email) }}
+        {{ form_widget(userForm.email) }}
+        {{ form_label(userForm.lastname) }}
+        {{ form_widget(userForm.lastname) }}
+        {{ form_label(userForm.firstname) }}
+        {{ form_widget(userForm.firstname) }}
+        {{ form_label(userForm.plainPassword) }}
+        {{ form_widget(userForm.plainPassword) }}
+        <button class="btn" type="submit">Modifier mes information</button>
+    </div>
     {{ form_end(userForm) }}
 {% endblock %}

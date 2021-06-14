@@ -73,6 +73,8 @@ h1, h2, h3, h4 {
     justify-content: space-between;
 
     & > div {
+        display: flex;
+        justify-content: center;
         flex: 1;
     }
 }
@@ -111,6 +113,19 @@ h1, h2, h3, h4 {
     font-size: 8px;
 }
 
+.input_form {
+    display: grid;
+    width: 30%;
+    margin: auto;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(25px, auto);
+    grid-gap: 16px;
+    > label {
+        display: flex;
+        align-items: center;
+    }
+}
+
 input {
     background: white;
     border-radius: 4px;
@@ -118,7 +133,10 @@ input {
     box-shadow: none;
     outline: none;
     border: 1px solid white;
-    margin: 0px 10px;
+
+    &:not(.select2-search__field) {
+        margin: 0px 10px;
+    }
 
     &:hover {
         border: 1px solid gray;

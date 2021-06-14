@@ -11,9 +11,13 @@
 
         {% for game in app.user.games|sort((a, b) => a.createdAt < b.createdAt) %}
             <div class="game_item">
-                {{ game.name }}
+                <div>
+                    {{ game.name }}
+                </div>
+                <div></div>
+                <div></div>
                 <div class="actions">
-                    <a href="{{ url('edit_game', { id: game.id }) }}">Modifier mon jeu</a>
+                    <a href="{{ url('edit_game', { id: game.id }) }}" class="btn btn-tertiary">Modifier mon jeu</a>
                 </div>
             </div>
         {% endfor %}

@@ -2,11 +2,16 @@
 
 {% block body %}
     {{ form_start(form) }}
+    <div class="input_form">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_label(form.link) }}
+        {{ form_widget(form.link) }}
+        {{ form_label(form.link) }}
+        {{ form_widget(form.category) }}
+        <button type="submit" class="btn">{{ edit ? 'Modifier le jeu' : 'Ajouter le jeu' }}</button>
+    </div>
 
-    {{ form_row(form.name) }}
-    {{ form_row(form.link) }}
-    {{ form_row(form.category) }}
 
-    <button type="submit" class="btn">{{ edit ? 'Modifier le jeu' : 'Ajouter le jeu' }}</button>
     {{ form_end(form) }}
 {% endblock %}

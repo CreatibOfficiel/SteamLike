@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Nom du jeu :</p>
+    <h2>{{ game.game.name }}</h2>
+    <p>L'utilisateur qui l'a ajouté :</p>
+    <h2>{{ {id: game.game.owner.id} }}</h2>
+
+{%  endblock %}
