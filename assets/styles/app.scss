@@ -13,6 +13,15 @@ body {
 a {
     text-decoration: none;
 }
+$orientations: t, b, l, r;
+
+@each $orientation in $orientations {
+    @for $i from 0 through 5 {
+        .m#{$orientation}-#{$i} {
+            margin-right: $i*4px;
+        }
+    }
+}
 
 nav {
     background: #171a21;
@@ -126,7 +135,7 @@ h1, h2, h3, h4 {
     }
 }
 
-input {
+input, textarea {
     background: white;
     border-radius: 4px;
     padding: 6px;

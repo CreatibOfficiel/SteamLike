@@ -43,9 +43,13 @@ class GameRepository extends ServiceEntityRepository
                 ->setParameter('search', '%' . $criteria['search'] . '%');
         }
 
-        if(isset($criteria['category']) && is_array($criteria['category']) && count($criteria['category'])) {
-            $query->andWhere('g.category IN (:categories)')
-                ->setParameter('categories', $criteria['category']);
+        if(isset($criteria['categories']) && is_array($criteria['categories']) && count($criteria['categories'])) {
+            foreach ($criteria['categories'] as $category) {
+                $categoryName = explode(' ', $category)[0];
+                $query->andWhere('g.categories LIKE :category' . $categoryName)
+                    ->setParameter('category' . $categoryName, '%'.$category.'%');
+            }
+
 
         }
 

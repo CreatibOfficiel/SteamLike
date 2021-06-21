@@ -7,8 +7,12 @@
         {{ form_widget(form.name) }}
         {{ form_label(form.link) }}
         {{ form_widget(form.link) }}
-        {{ form_label(form.link) }}
-        {{ form_widget(form.category) }}
+        {{ form_label(form.categories) }}
+        {{ form_widget(form.categories) }}
+        {{ form_label(form.imageFile) }}
+        {{ form_widget(form.imageFile) }}
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
         <button type="submit" class="btn">{{ edit ? 'Modifier le jeu' : 'Ajouter le jeu' }}</button>
     </div>
 

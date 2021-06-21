@@ -4,6 +4,7 @@
     <div>
         <a href="{{ url('add_game') }}" class="btn">Ajouter un jeu</a>
         <a href="{{ url('user_edit_profile') }}" class="btn">Modifier mes informations</a>
+        <a href="{{ url('add_category') }}" class="btn">Ajouter une catégorie</a>
     </div>
 
     <div>
@@ -17,6 +18,7 @@
                 <div></div>
                 <div></div>
                 <div class="actions">
+                    <a href="{{ url('delete_game', { id: game.id }) }}" class="btn mr-3 btn-tertiary">Supprimer mon jeu</a>
                     <a href="{{ url('edit_game', { id: game.id }) }}" class="btn btn-tertiary">Modifier mon jeu</a>
                 </div>
             </div>

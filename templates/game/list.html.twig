@@ -8,7 +8,7 @@
         <div class="flex-between">
             <div class="vcenter">
                 {{ form_row(form.search) }}
-                {{ form_row(form.category) }}
+                {{ form_row(form.categories) }}
             </div>
             <button class="btn">Rechercher</button>
         </div>
@@ -18,12 +18,14 @@
         <div>
             {% for game in games %}
                 <div class="game_item">
-                    <div> <a href="{{ url('user_show_profile', {id: game.game.owner.id}) }}" class="btn btn-tertiary">c</a></div>
+                    <div> <a href="{{ url('user_show_profile', {id: game.game.owner.id}) }}" class="btn btn-tertiary">{{ game.game.owner.firstname }} {{ game.game.owner.lastname }}</a></div>
                     <div>
-                        <h4>{{ game.game.name }}</h4>
+                        <h4><a href="{{ url('details_game', {id: game.game.id }) }}">{{ game.game.name }}</a></h4>
                     </div>
                     <div>
-                        <h4 class="btn btn-quartiary">{{ game.game.category }}</h4>
+                        {% for category in game.game.categories %}
+                            <h4 class="btn btn-quartiary mr-1">{{ category }}</h4>
+                        {% endfor %}
                     </div>
                     <div>
                         <p>{{ game.downloads > 0 ? 'Téléchargé ' ~ game.downloads ~ ' fois' : 'Pas encore téléchargé' }}</p>
@@ -31,7 +33,7 @@
 
                     {% if app.user %}
                         <div>
-                            <a href="{{ url('download_game', {id: game.game.id }) }}" class="btn btn-secondary">Télécharger le jeu</a>
+                            <a target="_blank" is="reloader-link" href="{{ url('download_game', {id: game.game.id }) }}" class="btn btn-secondary">Télécharger le jeu</a>
                         </div>
                     {% endif %}
                 </div>

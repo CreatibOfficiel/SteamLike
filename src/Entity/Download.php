@@ -25,7 +25,7 @@ class Download
     private User $relatedUser;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Game::class)
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="downloads")
      * @ORM\JoinColumn(nullable=false)
      */
     private Game $game;

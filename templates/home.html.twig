@@ -15,10 +15,14 @@
                         {% endif %}
                     </div>
 
-                    <div>{{ game.game.name }}</div>
+                    <div><a href="{{ url('details_game', {id: game.game.id }) }}">{{ game.game.name }}</a></div>
 
                     <div>
-                        <div class="btn btn-quartiary">{{ game.game.category }}</div>
+                        {% if game.game.categories|length > 0 %}
+                            {% for category in game.game.categories %}
+                                <div class="btn btn-quartiary mr-1">{{ category }}</div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                     <div class="sub_info">ajouté le {{ game.game.createdAt|date('d/m/Y H:i') }}</div>
                     <div>{{ game.downloads > 0 ? 'Téléchargé ' ~ game.downloads ~ ' fois' : 'Pas encore téléchargé' }}</div>

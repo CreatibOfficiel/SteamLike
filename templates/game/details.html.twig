@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>Nom du jeu :</p>
-    <h2>{{ game.game.name }}</h2>
-    <p>L'utilisateur qui l'a ajouté :</p>
-    <h2>{{ {id: game.game.owner.id} }}</h2>
 
+    {% if game.image %}
+        <img src="{{ vich_uploader_asset(game) }}" alt="game_logo" width="500">
+    {% endif %}
+    <p>Nom du jeu :</p>
+    <h2>{{ game.name }}</h2>
+    <p>L'utilisateur qui l'a ajouté :</p>
+    <h2>{{ game.owner.firstname }} - {{ game.owner.lastname }}</h2>
+    {% if game.description %}<p>Description : {{ game.description }}</p>{% endif %}
+
+    <a href="{{ url('home') }}" class="btn">Revenir à l'accueil</a>
 {%  endblock %}

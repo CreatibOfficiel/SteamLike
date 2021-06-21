@@ -5,3 +5,4 @@ import 'select2';
 
 import './js/app.js';
 import 'select2/dist/css/select2.min.css';
+import './js/reloader-link';

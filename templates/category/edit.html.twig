@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="input_form">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        <button type="submit" class="btn">{{ edit ? 'Modifier la catégorie' : 'Ajouter la catégorie' }}</button>
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}
